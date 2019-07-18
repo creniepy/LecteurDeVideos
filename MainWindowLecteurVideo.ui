@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>972</width>
-    <height>669</height>
+    <width>864</width>
+    <height>717</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
-       <widget class="QWidget" name="videoWidget" native="true">
+       <widget class="QVideoWidget" name="videoWidget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -30,9 +30,9 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <widget class="QLabel" name="TempsPasse">
+         <widget class="QLabel" name="lTempsCourant">
           <property name="text">
-           <string>TextLabel</string>
+           <string>00:00:00</string>
           </property>
          </widget>
         </item>
@@ -50,9 +50,9 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="TempsTotal">
+         <widget class="QLabel" name="lTempsTotal">
           <property name="text">
-           <string>TextLabel</string>
+           <string>00:00:00</string>
           </property>
          </widget>
         </item>
@@ -110,7 +110,7 @@
          </sizepolicy>
         </property>
         <property name="orientation">
-         <enum>Qt::Vertical</enum>
+         <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
@@ -144,7 +144,7 @@
       <item>
        <widget class="QListWidget" name="listeLecture">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -239,7 +239,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="Volume">
+         <widget class="QLabel" name="volume">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -262,13 +262,21 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>972</width>
+     <width>864</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QVideoWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">PySide2.QtMultimediaWidgets</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

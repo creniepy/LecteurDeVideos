@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file 'MainWindowLecteurVideo.ui',
 # licensing of 'MainWindowLecteurVideo.ui' applies.
 #
-# Created: Thu Jul 18 09:54:10 2019
+# Created: Thu Jul 18 15:41:47 2019
 #      by: pyside2-uic  running on PySide2 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,14 +13,14 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(972, 669)
+        MainWindow.resize(864, 717)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout()
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.videoWidget = QtWidgets.QWidget(self.centralwidget)
+        self.videoWidget = QVideoWidget(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -30,17 +30,17 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addWidget(self.videoWidget)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.TempsPasse = QtWidgets.QLabel(self.centralwidget)
-        self.TempsPasse.setObjectName("TempsPasse")
-        self.horizontalLayout_3.addWidget(self.TempsPasse)
+        self.lTempsCourant = QtWidgets.QLabel(self.centralwidget)
+        self.lTempsCourant.setObjectName("lTempsCourant")
+        self.horizontalLayout_3.addWidget(self.lTempsCourant)
         self.sTempsCourant = QtWidgets.QSlider(self.centralwidget)
         self.sTempsCourant.setMinimumSize(QtCore.QSize(0, 40))
         self.sTempsCourant.setOrientation(QtCore.Qt.Horizontal)
         self.sTempsCourant.setObjectName("sTempsCourant")
         self.horizontalLayout_3.addWidget(self.sTempsCourant)
-        self.TempsTotal = QtWidgets.QLabel(self.centralwidget)
-        self.TempsTotal.setObjectName("TempsTotal")
-        self.horizontalLayout_3.addWidget(self.TempsTotal)
+        self.lTempsTotal = QtWidgets.QLabel(self.centralwidget)
+        self.lTempsTotal.setObjectName("lTempsTotal")
+        self.horizontalLayout_3.addWidget(self.lTempsTotal)
         self.verticalLayout_4.addLayout(self.horizontalLayout_3)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
@@ -69,7 +69,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.line.sizePolicy().hasHeightForWidth())
         self.line.setSizePolicy(sizePolicy)
-        self.line.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.verticalLayout_5.addWidget(self.line)
@@ -82,7 +82,7 @@ class Ui_MainWindow(object):
         self.label_5.setObjectName("label_5")
         self.verticalLayout_8.addWidget(self.label_5)
         self.listeLecture = QtWidgets.QListWidget(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.listeLecture.sizePolicy().hasHeightForWidth())
@@ -126,19 +126,19 @@ class Ui_MainWindow(object):
         self.dial.setMaximumSize(QtCore.QSize(50, 50))
         self.dial.setObjectName("dial")
         self.horizontalLayout_6.addWidget(self.dial)
-        self.Volume = QtWidgets.QLabel(self.centralwidget)
+        self.volume = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Volume.sizePolicy().hasHeightForWidth())
-        self.Volume.setSizePolicy(sizePolicy)
-        self.Volume.setObjectName("Volume")
-        self.horizontalLayout_6.addWidget(self.Volume)
+        sizePolicy.setHeightForWidth(self.volume.sizePolicy().hasHeightForWidth())
+        self.volume.setSizePolicy(sizePolicy)
+        self.volume.setObjectName("volume")
+        self.horizontalLayout_6.addWidget(self.volume)
         self.verticalLayout_8.addLayout(self.horizontalLayout_6)
         self.horizontalLayout_7.addLayout(self.verticalLayout_8)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 972, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 864, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -150,8 +150,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "MainWindow", None, -1))
-        self.TempsPasse.setText(QtWidgets.QApplication.translate("MainWindow", "TextLabel", None, -1))
-        self.TempsTotal.setText(QtWidgets.QApplication.translate("MainWindow", "TextLabel", None, -1))
+        self.lTempsCourant.setText(QtWidgets.QApplication.translate("MainWindow", "00:00:00", None, -1))
+        self.lTempsTotal.setText(QtWidgets.QApplication.translate("MainWindow", "00:00:00", None, -1))
         self.pbLecture.setText(QtWidgets.QApplication.translate("MainWindow", "Lecture", None, -1))
         self.pbPause.setText(QtWidgets.QApplication.translate("MainWindow", "Pause", None, -1))
         self.pbStop.setText(QtWidgets.QApplication.translate("MainWindow", "Stop", None, -1))
@@ -161,5 +161,6 @@ class Ui_MainWindow(object):
         self.pbAjouter.setText(QtWidgets.QApplication.translate("MainWindow", "+", None, -1))
         self.pbSupprimer.setText(QtWidgets.QApplication.translate("MainWindow", "-", None, -1))
         self.label_3.setText(QtWidgets.QApplication.translate("MainWindow", "Volume :", None, -1))
-        self.Volume.setText(QtWidgets.QApplication.translate("MainWindow", "TextLabel", None, -1))
+        self.volume.setText(QtWidgets.QApplication.translate("MainWindow", "TextLabel", None, -1))
 
+from PySide2.QtMultimediaWidgets import QVideoWidget
